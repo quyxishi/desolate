@@ -177,6 +177,7 @@ fn main() {
             }
         };
     }
+
     // *
 
     let iface_ipv4_gateway_mac: MacAddr =
@@ -352,7 +353,6 @@ fn main() {
 
         packets_count = packets_count.saturating_add(1);
 
-        // println!("info: sent ARP reply for {}", target_ip);
         recli::infoln!(
             "*sent poisoned arp reply for* ~{}~ · {} packet(s)",
             target_ipv4,
