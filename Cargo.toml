@@ -1,0 +1,28 @@
+cargo-features = ["trim-paths"]
+
+[package]
+name = "desolate"
+version = "0.1.0"
+edition = "2021"
+authors = ["quyxishi"]
+categories = ["command-line-utilities", "network-programming"]
+keywords = ["cli", "network", "arp"]
+description = "Restrict network access for specific target in LAN via ARP"
+repository = "https://github.com/quyxishi/desolate"
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+clap = { version = "4.5.7", features = ["cargo", "derive"] }
+pnet = "0.35.0"
+signal-hook = "0.3.17"
+sudo = "0.6.0"
+
+[profile.release]
+debug = false
+strip = "symbols"
+lto = "fat"
+incremental = false
+codegen-units = 1
+rpath = false
+trim-paths = "all"
